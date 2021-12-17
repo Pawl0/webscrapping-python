@@ -1,42 +1,42 @@
 [
     {
-        "item": "Processador AMD Ryzen 5 5600G, 3.9GHz (4.4GHz Max Turbo), AM4, V\u00eddeo Integrado, 6 N\u00facleos - 100-100000252BOX",
-        "price": "R$ 1.734,90"
+        "item": "Processador\nAMD\nRyzen\n5\n5600G,\n3.9GHz\n(4.4GHz\nMax\nTurbo),\nAM4,\nV\u00eddeo\nIntegrado,\n6\nN\u00facleos\n-\n100-100000252BOX",
+        "price": 1734.9
     },
     {
-        "item": "Controle Sem Fio Sony PS5, DualSense, Galactic Purple - 3006456",
-        "price": "R$ 499,90"
+        "item": "Controle\nSem\nFio\nSony\nPS5,\nDualSense,\nGalactic\nPurple\n-\n3006456",
+        "price": 499.9
     },
     {
-        "item": "Headset Gamer HyperX Cloud Stinger, Drivers 50mm, M\u00faltiplas Plataformas, P2 e P3 - HX-HSCS-BK/NA",
-        "price": "R$ 259,90"
+        "item": "Headset\nGamer\nHyperX\nCloud\nStinger,\nDrivers\n50mm,\nM\u00faltiplas\nPlataformas,\nP2\ne\nP3\n-\nHX-HSCS-BK/NA",
+        "price": 259.9
     },
     {
-        "item": "Monitor Gamer Acer Nitro 27' IPS, 165 Hz, Full HD, 1ms, FreeSync Premium, HDR 10, 98% sRGB, HDMI/DisplayPort, VESA, Som Integrado -  VG270 S",
-        "price": "R$ 1.546,90"
+        "item": "Monitor\nGamer\nAcer\nNitro\n27'\nIPS,\n165\nHz,\nFull\nHD,\n1ms,\nFreeSync\nPremium,\nHDR\n10,\n98%\nsRGB,\nHDMI/DisplayPort,\nVESA,\nSom\nIntegrado\n-\n\nVG270\nS",
+        "price": 1546.9
     },
     {
-        "item": "Smartphone Motorola Moto E6i 4G, 32GB, RAM 2GB, Octa-Core, C\u00e2mera 13MP, 3000mAh, Pink  - PANC0001BR",
-        "price": "R$ 657,00"
+        "item": "Smartphone\nMotorola\nMoto\nE6i\n4G,\n32GB,\nRAM\n2GB,\nOcta-Core,\nC\u00e2mera\n13MP,\n3000mAh,\nPink\n\n-\nPANC0001BR",
+        "price": 657.0
     },
     {
-        "item": "SSD KLEVV NEO N400 480GB, SATA 6Gb/s, 2.5 Polegadas, Leitura 500MB/s - K480GSSDS3-N40",
-        "price": "R$ 279,90"
+        "item": "SSD\nKLEVV\nNEO\nN400\n480GB,\nSATA\n6Gb/s,\n2.5\nPolegadas,\nLeitura\n500MB/s\n-\nK480GSSDS3-N40",
+        "price": 279.9
     },
     {
-        "item": "Smart TV 50 4K UHD LG 50UP7750, WiFi, Bluetooth, 60Hz, HDR10, Intelig\u00eancia Artificial ThinQ, Google Alexa, Preto - 50UP7750PSB",
-        "price": "R$ 2.699,00"
+        "item": "Smart\nTV\n50\n4K\nUHD\nLG\n50UP7750,\nWiFi,\nBluetooth,\n60Hz,\nHDR10,\nIntelig\u00eancia\nArtificial\nThinQ,\nGoogle\nAlexa,\nPreto\n-\n50UP7750PSB",
+        "price": 2699.0
     },
     {
-        "item": "Teclado \u00d3ptico-Mec\u00e2nico Gamer Razer Huntsman Tournament, Chroma, Razer Switch Red, US - RZ03-03080200-R3U1",
-        "price": "R$ 699,90"
+        "item": "Teclado\n\u00d3ptico-Mec\u00e2nico\nGamer\nRazer\nHuntsman\nTournament,\nChroma,\nRazer\nSwitch\nRed,\nUS\n-\nRZ03-03080200-R3U1",
+        "price": 699.9
     },
     {
-        "item": "Console Microsoft Xbox Series S, 512GB, Branco - RRS-00006",
-        "price": "R$ 2.399,90"
+        "item": "Console\nMicrosoft\nXbox\nSeries\nS,\n512GB,\nBranco\n-\nRRS-00006",
+        "price": 2399.9
     },
     {
-        "item": "HD Seagate BarraCuda, 1TB, 3.5\u00b4, SATA - ST1000DM010",
-        "price": "R$ 239,90"
+        "item": "HD\nSeagate\nBarraCuda,\n1TB,\n3.5\u00b4,\nSATA\n-\nST1000DM010",
+        "price": 239.9
     }
 ]

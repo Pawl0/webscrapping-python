@@ -1,42 +1,42 @@
 [
     {
+        "item": "Processador AMD Ryzen 5 5600G, 3.9GHz (4.4GHz Max Turbo), AM4, V\u00eddeo Integrado, 6 N\u00facleos - 100-100000252BOX",
+        "price": "R$ 1.734,90"
+    },
+    {
+        "item": "Controle Sem Fio Sony PS5, DualSense, Galactic Purple - 3006456",
+        "price": "R$ 499,90"
+    },
+    {
+        "item": "Headset Gamer HyperX Cloud Stinger, Drivers 50mm, M\u00faltiplas Plataformas, P2 e P3 - HX-HSCS-BK/NA",
+        "price": "R$ 259,90"
+    },
+    {
+        "item": "Monitor Gamer Acer Nitro 27' IPS, 165 Hz, Full HD, 1ms, FreeSync Premium, HDR 10, 98% sRGB, HDMI/DisplayPort, VESA, Som Integrado -  VG270 S",
+        "price": "R$ 1.546,90"
+    },
+    {
+        "item": "Smartphone Motorola Moto E6i 4G, 32GB, RAM 2GB, Octa-Core, C\u00e2mera 13MP, 3000mAh, Pink  - PANC0001BR",
+        "price": "R$ 657,00"
+    },
+    {
+        "item": "SSD KLEVV NEO N400 480GB, SATA 6Gb/s, 2.5 Polegadas, Leitura 500MB/s - K480GSSDS3-N40",
+        "price": "R$ 279,90"
+    },
+    {
+        "item": "Smart TV 50 4K UHD LG 50UP7750, WiFi, Bluetooth, 60Hz, HDR10, Intelig\u00eancia Artificial ThinQ, Google Alexa, Preto - 50UP7750PSB",
+        "price": "R$ 2.699,00"
+    },
+    {
+        "item": "Teclado \u00d3ptico-Mec\u00e2nico Gamer Razer Huntsman Tournament, Chroma, Razer Switch Red, US - RZ03-03080200-R3U1",
+        "price": "R$ 699,90"
+    },
+    {
         "item": "Console Microsoft Xbox Series S, 512GB, Branco - RRS-00006",
-        "price": "R$ 2.517,41"
+        "price": "R$ 2.399,90"
     },
     {
-        "item": "HD Seagate BarraCuda, 2TB, 3.5\u00b4, SATA - ST2000DM008",
-        "price": "R$ 374,90"
-    },
-    {
-        "item": "Smart TV LG 43\u00b4 4K UHD 43UP7500, com WiFi e Bluetooth, HDR, ThinQAI Compat\u00edvel com Intelig\u00eancia Artificial - 43UP7500PSF",
-        "price": "R$ 2.199,99"
-    },
-    {
-        "item": "Cadeira Gamer Husky Gaming Snow, Preto, Cilindro de G\u00e1s Classe 4, Base em Metal, Roda em Nylon - HSN-BK",
-        "price": "R$ 549,95"
-    },
-    {
-        "item": "Notebook Acer Aspire 5 Intel Core i5-1035G1, 4GB RAM, SSD 256GB, 14.0 HD, Windows 10 Home, Prata - A514-53-5239",
-        "price": "R$ 3.499,90"
-    },
-    {
-        "item": "Gabinete Gamer Corsair Carbide Series Spec Delta RGB Mid-Tower, 3 Fans, Vidro Temperado, Preto - CC-9011166-WW",
-        "price": "R$ 399,90"
-    },
-    {
-        "item": "Monitor Gamer Samsung Odyssey G3, 24 Full HD, 144Hz, 1ms, FreeSync Premium, HDMI/Displayport, Ajuste de altura, Preto - LF24G35TFWLXZD",
-        "price": "R$ 1.999,90"
-    },
-    {
-        "item": "Kit Gamer Redragon - Teclado Mec\u00e2nico Kumara, RGB, Switch Outemu Blue, PT, Branco + Mouse Cobra M711, Chroma, 10000DPI, Branco - S118W",
-        "price": "R$ 389,90"
-    },
-    {
-        "item": "PC Gamer Conc\u00f3rdia, Processador Ryzen 5 3400G, 16GB, SSD 480GB, Fonte 500W, Windows 10 Pro - 40420",
-        "price": "R$ 4.199,90"
-    },
-    {
-        "item": "Aspirador de P\u00f3 Rob\u00f4 KaBuM! Smart 500, Preto - Recarregamento Autom\u00e1tico, Filtro HEPA, Controle via Aplicativo - KBSF000",
-        "price": "R$ 999,99"
+        "item": "HD Seagate BarraCuda, 1TB, 3.5\u00b4, SATA - ST1000DM010",
+        "price": "R$ 239,90"
     }
 ]

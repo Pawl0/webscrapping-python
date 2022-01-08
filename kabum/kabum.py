@@ -6,22 +6,27 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
-url = "https://www.kabum.com.br/"
 
-option = Options()
-option.headless = True
-print("Opening driver")
-driver = webdriver.Firefox(options=option)
+def saveJsonFile(itens):
+    print("Saving file as json....")
+    with open('kabum-top-10.json', 'w', encoding='utf-8') as jp:
+        js = json.dumps(itens, indent=4)
+        jp.write(js)
 
-print("Getting data from: ", url)
-driver.get(url)
-print("Waiting page to load...")
-driver.implicitly_wait(30)  # in seconds
 
-itens = []
+def plotChart(itens):
+    print("Plotting chart....")
+    data = pd.DataFrame(itens)
+    print(data.head(10))
+    plotdata = data.head(10)
+    plotdata.plot(kind='bar', x='item', y='price', color='red')
+    plt.xticks(fontsize=6, rotation=0)
+    plt.title("Top 10 Kabum")
+    plt.show()
 
-try:
-    print("Processing data....")
+
+def getItensData():
+    itens = []
     for elementIndex in range(10):
         elementDescription = driver.find_element_by_xpath(
             f"//html//body//div//main//div//article//section[1]//div[1]//div[2]//div[1]//div//div//div//div[{elementIndex+1}]//div//div//a//div//div[1]//h2")
@@ -40,24 +45,32 @@ try:
             "item": description.replace(' ', '\n'),
             "price": float(price[3:].replace(".", "").replace(",", "."))
         })
+    return itens
 
+
+def setupDriver(url):
+    option = Options()
+    option.headless = True
+    print("Opening driver...")
+    driver = webdriver.Firefox(options=option)
+
+    print("Getting data from: ", url)
+    driver.get(url)
+    print("Waiting page to load...")
+    driver.implicitly_wait(30)  # in seconds
+    return driver
+
+
+try:
+    driver = setupDriver("https://www.kabum.com.br/")
+
+    itens = getItensData()
     driver.quit()
 
     print(itens)
 
-    print("Plotting chart....")
-    data = pd.DataFrame(itens)
-    print(data.head(10))
-    plotdata = data.head(10)
-    plotdata.plot(kind='bar', x='item', y='price', color='red')
-    plt.xticks(fontsize=6, rotation=0)
-    plt.title("Top 10 Kabum")
-    plt.show()
-
-    print("Saving file as json....")
-    with open('kabum-top-10.json', 'w', encoding='utf-8') as jp:
-        js = json.dumps(itens, indent=4)
-        jp.write(js)
+    plotChart(itens)
+    saveJsonFile(itens)
 
 except error:
     print(error)

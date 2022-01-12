@@ -4,28 +4,24 @@
         "price": 249.9
     },
     {
-        "item": "Controle\nSem\nfio\nPS5\nDualSense",
-        "price": 395.91
-    },
-    {
         "item": "Processador\nAMD\nRyzen\n5\n5600G,\n3.9GHz\n(4.4GHz\nMax\nTurbo),\nAM4,\nV\u00eddeo\nIntegrado,\n6\nN\u00facleos\n-\n100-100000252BOX",
         "price": 1739.9
     },
     {
-        "item": "Notebook\nMultilaser\nLegacy\nCloud\nIntel\nAtom\nZ8350,\n2GB\nRAM,\n128GB\n(HDD+SD\nCard),\nWindows\n10\nHome,\n14\nHD,\nCinza\n-\nPC136",
-        "price": 1329.9
+        "item": "Notebook\nAsus\nZenBook\nIntel\nCore\nI7-1165G7,\n8GB,\n512\nGB\nSSD,\nWindows\n10\nHome,\n14\u00b4,\nCinza\nEscuro\n-\nUX435EA-A5072T",
+        "price": 6699.9
     },
     {
-        "item": "Smartphone\nMotorola\nMoto\nG30,\n128GB,\nRAM\n4GB,\nOcta-Core,\nC\u00e2mera\nQu\u00e1drupla,\n5000mAh,\nDark\nPrism\n-\nPAMK0000BR",
-        "price": 1319.55
+        "item": "Smart\nTV\nSamsung\n50\u00b4\n4K\nQLED\n50Q60A,\nTela\nInfinita,\nProcessador\nIA,\nHDR10+,\nDesign\nSlim,\nAlexa\nBuilt\nIn\n-\nQN50Q60AAGXZD",
+        "price": 3179.0
     },
     {
         "item": "Mem\u00f3ria\nXPG\nSpectrix\nD41\nTUF,\nRGB,\n\n8GB,\n3200MHz,\nDDR4,\nCL16,\nPreta\n-\nAX4U32008G16A-SB41",
         "price": 264.9
     },
     {
-        "item": "Smart\nTV\nLG\n55\n4K\nUHD,\nWiFi,\nBluetooth,\nHDR,\nIntelig\u00eancia\nArtificial,\nThinQ,\nSmart\nMagic,\nGoogle\nAlexa\n-\n55UP7750PSB",
-        "price": 2899.0
+        "item": "Jogo\nGhost\nOf\nTsushima\nVers\u00e3o\ndo\nDiretor\nPS5",
+        "price": 263.91
     },
     {
         "item": "Teclado\n\u00d3ptico-Mec\u00e2nico\nGamer\nRazer\nHuntsman\nTournament,\nChroma,\nRazer\nSwitch\nRed,\nUS\n-\nRZ03-03080200-R3U1",
@@ -37,6 +33,10 @@
     },
     {
         "item": "Cadeira\nGamer\nAlpha\nGamer\nVega,\nPreto,\nReclin\u00e1vel,\ncom\nAlmofadas,\nCilindro\nde\nG\u00e1s\nClasse\n4",
-        "price": 1199.95
+        "price": 1149.95
+    },
+    {
+        "item": "HD\nExterno\nSeagate\nFireCuda\nGaming,\n1TB,\nLED\nRGB,\nUSB,\nPreto\n-\nSTKL1000400",
+        "price": 419.9
     }
 ]

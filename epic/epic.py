@@ -1,29 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-import json
+import os
+import sys
+sys.path.append('../helpers')
+from helpers import saveJsonFile, setupDriver
+import time
 
-
-def setupDriver(url):
-    option = Options()
-    option.headless = True
-    print("Opening driver...")
-    driver = webdriver.Firefox(options=option)
-
-    print("Getting data from: ", url)
-    driver.get(url)
-    print("Waiting page to load...")
-    # driver.implicitly_wait(10)  # in seconds
-    return driver
-
-
-def saveJsonFile(name, itens):
-    print("Saving file as json....")
-    with open(name+'.json', 'w', encoding='utf-8') as jp:
-        js = json.dumps(itens, indent=4)
-        jp.write(js)
-
-
-def getItensData():
+def getItensData(driver):
     itens = []
     elementDescription = driver.find_element_by_xpath(
         f'//*[@id="dieselReactWrapper"]/div/div[4]/main/div[2]/div/div/div/span[4]/div/div/section/div/div[1]/div/div/a/div/div/div[3]/span[1]/div')
@@ -43,19 +24,21 @@ def getItensData():
     })
     return itens
 
+def main():
+    try:
+        driver = setupDriver("https://www.epicgames.com/store/pt-BR/")
 
-try:
-    driver = setupDriver("https://www.epicgames.com/store/pt-BR/")
+        itens = getItensData(driver)
 
-    itens = getItensData()
+        print(itens)
 
-    driver.quit()
+        saveJsonFile("epic-free-games", itens)
 
-    print(itens)
+        return itens
+    except:
+        print("An error has ocurred")
+    finally:
+        driver.quit()
 
-    saveJsonFile("epic free games", itens)
-
-except error:
-    print(error)
-    driver.close()
-    driver.quit()
+if __name__ == "__main__":
+    main()

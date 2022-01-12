@@ -1,31 +1,8 @@
-import requests
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-import json
-import pandas as pd
-import matplotlib.pyplot as plt
+import sys
+sys.path.append('../helpers')
+from helpers import saveJsonFile, setupDriver, plotChart
 
-
-def saveJsonFile(itens):
-    print("Saving file as json....")
-    with open('kabum-top-10.json', 'w', encoding='utf-8') as jp:
-        js = json.dumps(itens, indent=4)
-        jp.write(js)
-
-
-def plotChart(itens):
-    print("Plotting chart....")
-    data = pd.DataFrame(itens)
-    print(data.head(10))
-    plotdata = data.head(10)
-    plotdata.plot(kind='bar', x='item', y='price', color='red')
-    plt.xticks(fontsize=6, rotation=0)
-    plt.title("Top 10 Kabum")
-    plt.show()
-
-
-def getItensData():
+def getItensData(driver):
     itens = []
     for elementIndex in range(10):
         elementDescription = driver.find_element_by_xpath(
@@ -42,37 +19,28 @@ def getItensData():
         print(price)
 
         itens.append({
-            "item": description.replace(' ', '\n'),
+            "item": description,
+            # "item": description.replace(' ', '\n'),
             "price": float(price[3:].replace(".", "").replace(",", "."))
         })
     return itens
 
+def main():
+    try:
+        driver = setupDriver("https://www.kabum.com.br/")
 
-def setupDriver(url):
-    option = Options()
-    option.headless = True
-    print("Opening driver...")
-    driver = webdriver.Firefox(options=option)
+        itens = getItensData(driver)
 
-    print("Getting data from: ", url)
-    driver.get(url)
-    print("Waiting page to load...")
-    driver.implicitly_wait(30)  # in seconds
-    return driver
+        print(itens)
 
+        # plotChart(itens)
+        saveJsonFile('kabum-top-10', itens)
 
-try:
-    driver = setupDriver("https://www.kabum.com.br/")
+        return itens
+    except:
+        print("An error has ocurred")
+    finally:
+        driver.quit()
 
-    itens = getItensData()
-    driver.quit()
-
-    print(itens)
-
-    plotChart(itens)
-    saveJsonFile(itens)
-
-except error:
-    print(error)
-    driver.close()
-    driver.quit()
+if __name__ == "__main__":
+    main()

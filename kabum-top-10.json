@@ -1,42 +1,42 @@
 [
     {
-        "item": "Headset\nGamer\nHyperX\nCloud\nStinger,\nDrivers\n50mm,\nM\u00faltiplas\nPlataformas,\nP2\ne\nP3\n-\nHX-HSCS-BK/NA",
+        "item": "Headset Gamer HyperX Cloud Stinger, Drivers 50mm, M\u00faltiplas Plataformas, P2 e P3 - HX-HSCS-BK/NA",
         "price": 249.9
     },
     {
-        "item": "Controle\nSem\nfio\nPS5\nDualSense",
-        "price": 395.91
-    },
-    {
-        "item": "Processador\nAMD\nRyzen\n5\n5600G,\n3.9GHz\n(4.4GHz\nMax\nTurbo),\nAM4,\nV\u00eddeo\nIntegrado,\n6\nN\u00facleos\n-\n100-100000252BOX",
+        "item": "Processador AMD Ryzen 5 5600G, 3.9GHz (4.4GHz Max Turbo), AM4, V\u00eddeo Integrado, 6 N\u00facleos - 100-100000252BOX",
         "price": 1739.9
     },
     {
-        "item": "Notebook\nMultilaser\nLegacy\nCloud\nIntel\nAtom\nZ8350,\n2GB\nRAM,\n128GB\n(HDD+SD\nCard),\nWindows\n10\nHome,\n14\nHD,\nCinza\n-\nPC136",
-        "price": 1329.9
+        "item": "Notebook Asus ZenBook Intel Core I7-1165G7, 8GB, 512 GB SSD, Windows 10 Home, 14\u00b4, Cinza Escuro - UX435EA-A5072T",
+        "price": 6699.9
     },
     {
-        "item": "Smartphone\nMotorola\nMoto\nG30,\n128GB,\nRAM\n4GB,\nOcta-Core,\nC\u00e2mera\nQu\u00e1drupla,\n5000mAh,\nDark\nPrism\n-\nPAMK0000BR",
-        "price": 1319.55
+        "item": "Smart TV Samsung 50\u00b4 4K QLED 50Q60A, Tela Infinita, Processador IA, HDR10+, Design Slim, Alexa Built In - QN50Q60AAGXZD",
+        "price": 3179.0
     },
     {
-        "item": "Mem\u00f3ria\nXPG\nSpectrix\nD41\nTUF,\nRGB,\n\n8GB,\n3200MHz,\nDDR4,\nCL16,\nPreta\n-\nAX4U32008G16A-SB41",
+        "item": "Mem\u00f3ria XPG Spectrix D41 TUF, RGB,  8GB, 3200MHz, DDR4, CL16, Preta - AX4U32008G16A-SB41",
         "price": 264.9
     },
     {
-        "item": "Smart\nTV\nLG\n55\n4K\nUHD,\nWiFi,\nBluetooth,\nHDR,\nIntelig\u00eancia\nArtificial,\nThinQ,\nSmart\nMagic,\nGoogle\nAlexa\n-\n55UP7750PSB",
-        "price": 2899.0
+        "item": "Jogo Ghost Of Tsushima Vers\u00e3o do Diretor PS5",
+        "price": 263.91
     },
     {
-        "item": "Teclado\n\u00d3ptico-Mec\u00e2nico\nGamer\nRazer\nHuntsman\nTournament,\nChroma,\nRazer\nSwitch\nRed,\nUS\n-\nRZ03-03080200-R3U1",
+        "item": "Teclado \u00d3ptico-Mec\u00e2nico Gamer Razer Huntsman Tournament, Chroma, Razer Switch Red, US - RZ03-03080200-R3U1",
         "price": 699.9
     },
     {
-        "item": "Monitor\nGamer\nLg\n23,8\nFull\nHd\n144hz\n1ms\nHdmi\nDp\nIps\nHdr\nFreesync\n24gn600-b",
+        "item": "Monitor Gamer Lg 23,8 Full Hd 144hz 1ms Hdmi Dp Ips Hdr Freesync 24gn600-b",
         "price": 1322.6
     },
     {
-        "item": "Cadeira\nGamer\nAlpha\nGamer\nVega,\nPreto,\nReclin\u00e1vel,\ncom\nAlmofadas,\nCilindro\nde\nG\u00e1s\nClasse\n4",
-        "price": 1199.95
+        "item": "Cadeira Gamer Alpha Gamer Vega, Preto, Reclin\u00e1vel, com Almofadas, Cilindro de G\u00e1s Classe 4",
+        "price": 1149.95
+    },
+    {
+        "item": "HD Externo Seagate FireCuda Gaming, 1TB, LED RGB, USB, Preto - STKL1000400",
+        "price": 419.9
     }
 ]

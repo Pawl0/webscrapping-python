@@ -1,8 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import json
-import pandas as pd
-# import matplotlib.pyplot as plt
 
 PAGE_LOAD_WAIT_TIME = 30
 

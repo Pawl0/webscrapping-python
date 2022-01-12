@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import json
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 PAGE_LOAD_WAIT_TIME = 30
 
@@ -29,11 +29,11 @@ def saveJsonFile(name, itens):
 
 
 def plotChart(itens):
-    print("Plotting chart....")
-    data = pd.DataFrame(itens)
-    print(data.head(10))
-    plotdata = data.head(10)
-    plotdata.plot(kind='bar', x='item', y='price', color='red')
-    plt.xticks(fontsize=6, rotation=0)
-    plt.title("Top 10 Kabum")
-    plt.show()
+    # print("Plotting chart....")
+    # data = pd.DataFrame(itens)
+    # print(data.head(10))
+    # plotdata = data.head(10)
+    # plotdata.plot(kind='bar', x='item', y='price', color='red')
+    # plt.xticks(fontsize=6, rotation=0)
+    # plt.title("Top 10 Kabum")
+    # plt.show()

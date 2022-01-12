@@ -8,7 +8,7 @@ def setupDriver(url):
     option = Options()
     option.headless = True
     print("Opening driver...")
-    driver = webdriver.Firefox(options=option)
+    driver = webdriver.Firefox(executable_path='../../geckodriver/linux/geckodriver', options=option)
 
     print("Getting data from: ", url)
     driver.get(url)

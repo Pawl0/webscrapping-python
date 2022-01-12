@@ -26,14 +26,3 @@ def saveJsonFile(name, itens):
         js = json.dumps(itens, indent=4)
         jp.write(js)
         print('File saved as: ', filename)
-
-
-def plotChart(itens):
-    # print("Plotting chart....")
-    # data = pd.DataFrame(itens)
-    # print(data.head(10))
-    # plotdata = data.head(10)
-    # plotdata.plot(kind='bar', x='item', y='price', color='red')
-    # plt.xticks(fontsize=6, rotation=0)
-    # plt.title("Top 10 Kabum")
-    # plt.show()

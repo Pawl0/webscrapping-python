@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../helpers')
-from helpers import saveJsonFile, setupDriver, plotChart
+from helpers import saveJsonFile, setupDriver
 
 
 def getElementByIndex(driver, index):

@@ -51,5 +51,4 @@ tzlocal==2.1
 urllib3==1.26.6
 virtualenv==20.13.0
 Werkzeug==1.0.1
-xattr==0.6.4
 zipp==1.2.0

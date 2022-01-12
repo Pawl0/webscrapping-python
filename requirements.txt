@@ -19,7 +19,6 @@ filelock==3.2.1
 Flask==1.1.4
 funcsigs==1.0.2
 future==0.17.1
-futures==3.3.0
 idna==2.10
 importlib-metadata==2.1.2
 importlib-resources==3.3.1

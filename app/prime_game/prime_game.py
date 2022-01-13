@@ -28,6 +28,7 @@ def getItensData(driver):
             })
             elementIndex += 1
             element = getElementByIndex(driver, elementIndex)
+        return itens
     except:
         return itens
 

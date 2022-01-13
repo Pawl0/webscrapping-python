@@ -3,6 +3,7 @@ sys.path.append('./app/helpers')
 sys.path.append('./app/epic')
 sys.path.append('./app/kabum')
 sys.path.append('./app/prime_game')
+from helpers import openJsonFile
 from epic import main as epicMain
 from kabum import main as kabumMain
 from prime_game import main as primeMain
@@ -11,34 +12,31 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 cache = {
-    "epic": [],
-    "kabum": [],
-    "prime": []
+    "epic": "../epic-free-games.json",
+    "kabum": "../kabum-top-10.json",
+    "prime": "../amazon-prime-free-games.json"
 }
 
 @app.route("/epic")
 def epic():        
-    cache["epic"] = epicMain()
-    return jsonify(cache["epic"])
+    return jsonify(epicMain())
 
 @app.route("/epic/cache")
 def epicCache():        
-    return jsonify(cache["epic"])
+    return jsonify(openJsonFile(cache["epic"]))
 
 @app.route("/kabum")
 def kabum():
-    cache["kabum"] = kabumMain()
-    return jsonify(cache["kabum"])
+    return jsonify(kabumMain())
 
 @app.route("/kabum/cache")
 def kabumCache():        
-    return jsonify(cache["kabum"])
+    return jsonify(openJsonFile(cache["kabum"]))
 
 @app.route("/prime_game")
 def prime():
-    cache["prime"] = primeMain()
-    return jsonify( cache["prime"])
+    return jsonify(primeMain())
 
 @app.route("/prime_game/cache")
 def primeCache():        
-    return jsonify(cache["prime"])
+    return jsonify(openJsonFile(cache["prime"]))

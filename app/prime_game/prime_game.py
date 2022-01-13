@@ -33,15 +33,15 @@ def getItensData(driver):
 
 def main():
     # try:
-        driver = setupDriver("https://gaming.amazon.com/home")
+    driver = setupDriver("https://gaming.amazon.com/home")
 
-        itens = getItensData(driver)
+    itens = getItensData(driver)
 
-        print(itens)
+    print(itens)
 
-        saveJsonFile("amazon-prime-free-games", itens)
+    saveJsonFile("amazon-prime-free-games", itens)
 
-        return itens
+    return itens
     # except:
     #     print("An error has ocurred")
     # finally:

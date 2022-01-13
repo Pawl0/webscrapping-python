@@ -26,21 +26,21 @@ def getItensData(driver):
     return itens
 
 def main():
-    try:
-        driver = setupDriver("https://www.kabum.com.br/")
+    # try:
+    driver = setupDriver("https://www.kabum.com.br/")
 
-        itens = getItensData(driver)
+    itens = getItensData(driver)
 
-        print(itens)
+    print(itens)
 
-        # plotChart(itens)
-        saveJsonFile('kabum-top-10', itens)
+    # plotChart(itens)
+    saveJsonFile('kabum-top-10', itens)
 
-        return itens
-    except:
-        print("An error has ocurred")
-    finally:
-        driver.quit()
+    return itens
+    # except:
+    #     print("An error has ocurred")
+    # finally:
+    #     driver.quit()
 
 if __name__ == "__main__":
     main()

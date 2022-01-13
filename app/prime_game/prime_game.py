@@ -13,7 +13,7 @@ def getItensData(driver):
     try:
         elementIndex = 1
         element = getElementByIndex(driver, elementIndex)
-        while (element or elementIndex < 9):
+        while (element and elementIndex < 8):
             elementDescription = element.find_element_by_tag_name('h3')
             description = elementDescription.get_attribute('innerHTML')
             time = element.find_element_by_tag_name(

@@ -5,7 +5,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary #We import t
 import json
 import os
 
-PAGE_LOAD_WAIT_TIME = 30
+PAGE_LOAD_WAIT_TIME = 20
 
 def setupDriver(url):
     FF_options = webdriver.FirefoxOptions()

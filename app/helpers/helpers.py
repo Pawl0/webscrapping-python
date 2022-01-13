@@ -1,14 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import json
+import os
 
 PAGE_LOAD_WAIT_TIME = 30
 
 def setupDriver(url):
-    option = Options()
-    option.headless = True
+    options = Options()
+    options.headless = True
+    options.binary_location = os.environ.get("FIREFOX_BIN")
     print("Opening driver...")
-    driver = webdriver.Firefox(executable_path='../../geckodriver/linux/geckodriver', options=option)
+    driver = webdriver.Firefox(executable_path=os,environ.get("GECKODRIVER_PATH"), options=options)
 
     print("Getting data from: ", url)
     driver.get(url)

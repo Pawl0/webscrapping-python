@@ -1,16 +1,24 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary #We import this so we can specify the Firefox browser binary location
+
 import json
 import os
 
 PAGE_LOAD_WAIT_TIME = 30
 
 def setupDriver(url):
-    options = Options()
-    options.headless = True
-    options.binary_location = os.environ.get("FIREFOX_BIN")
+    FF_options = webdriver.FirefoxOptions()
+    FF_profile = webdriver.FirefoxProfile()
+    FF_options.add_argument("-headless")
+    FF_profile.update_preferences()
+
+    # options = Options()
+    # options.headless = True
+    # options.binary_location = os.environ.get("FIREFOX_BIN")
     print("Opening driver...")
-    driver = webdriver.Firefox(executable_path=os,environ.get("GECKODRIVER_PATH"), options=options)
+    # driver = webdriver.Firefox(executable_path=os,environ.get("GECKODRIVER_PATH"), options=options)
+    driver = webdriver.Firefox(options=FF_options, firefox_profile=FF_profile, executable_path=os.environ.get("GECKODRIVER_PATH"), firefox_binary=FirefoxBinary(os.environ.get("FIREFOX_BIN")))
 
     print("Getting data from: ", url)
     driver.get(url)

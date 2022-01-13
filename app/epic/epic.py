@@ -2,7 +2,6 @@ import os
 import sys
 sys.path.append('../helpers')
 from helpers import saveJsonFile, setupDriver
-import time
 
 def getItensData(driver):
     itens = []

@@ -10,15 +10,15 @@ FF_options = webdriver.FirefoxOptions()
 FF_profile = webdriver.FirefoxProfile()
 FF_options.add_argument("-headless")
 FF_profile.update_preferences()
+print("Opening driver...")
+driver = webdriver.Firefox(options=FF_options, firefox_profile=FF_profile, executable_path=os.environ.get("GECKODRIVER_PATH"), firefox_binary=FirefoxBinary(os.environ.get("FIREFOX_BIN")))
 
 def setupDriver(url):
     # options = Options()
     # options.headless = True
     # options.binary_location = os.environ.get("FIREFOX_BIN")
-    print("Opening driver...")
+    
     # driver = webdriver.Firefox(executable_path=os,environ.get("GECKODRIVER_PATH"), options=options)
-    driver = webdriver.Firefox(options=FF_options, firefox_profile=FF_profile, executable_path=os.environ.get("GECKODRIVER_PATH"), firefox_binary=FirefoxBinary(os.environ.get("FIREFOX_BIN")))
-
     print("Getting data from: ", url)
     driver.get(url)
     print("Waiting page to load...")

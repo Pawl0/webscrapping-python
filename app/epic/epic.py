@@ -24,20 +24,21 @@ def getItensData(driver):
     return itens
 
 def main():
-    try:
-        driver = setupDriver("https://www.epicgames.com/store/pt-BR/")
+    # try:
+    driver = setupDriver("https://www.epicgames.com/store/pt-BR/")
 
-        itens = getItensData(driver)
+    itens = getItensData(driver)
 
-        print(itens)
+    print(itens)
 
-        saveJsonFile("epic-free-games", itens)
+    saveJsonFile("epic-free-games", itens)
 
-        return itens
-    except:
-        print("An error has ocurred")
-    finally:
-        driver.quit()
+    driver.quit()
+    return itens
+    # except:
+    #     print("An error has ocurred")
+    # finally:
+    #     driver.quit()
 
 if __name__ == "__main__":
     main()

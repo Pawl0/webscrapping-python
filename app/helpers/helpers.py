@@ -33,3 +33,8 @@ def saveJsonFile(name, itens):
         js = json.dumps(itens, indent=4)
         jp.write(js)
         print('File saved as: ', filename)
+
+def openJsonFile(name):
+    f = open(name)
+    data = json.load(file)
+    return data

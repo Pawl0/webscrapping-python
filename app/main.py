@@ -12,9 +12,9 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 cache = {
-    "epic": "../epic-free-games.json",
-    "kabum": "../kabum-top-10.json",
-    "prime": "../amazon-prime-free-games.json"
+    "epic": "../epic/epic-free-games.json",
+    "kabum": "../kabum/kabum-top-10.json",
+    "prime": "../prime_game/amazon-prime-free-games.json"
 }
 
 @app.route("/epic")

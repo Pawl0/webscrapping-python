@@ -12,8 +12,8 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 cache = {
-    "epic": "epic/epic-free-games.json",
-    "kabum": "kabum/kabum-top-10.json",
+    "epic": "epic-free-games.json",
+    "kabum": "kabum-top-10.json",
     "prime": "amazon-prime-free-games.json"
 }
 

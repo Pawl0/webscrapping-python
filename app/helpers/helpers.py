@@ -35,6 +35,6 @@ def saveJsonFile(name, itens):
         print('File saved as: ', filename)
 
 def openJsonFile(name):
-    f = open(name)
+    file = open(name)
     data = json.load(file)
     return data

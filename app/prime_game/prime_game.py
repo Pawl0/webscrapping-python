@@ -42,7 +42,7 @@ def main():
 
     saveJsonFile("amazon-prime-free-games", itens)
 
-    driver.quit()
+    # driver.quit()
     return itens
     # except:
     #     print("An error has ocurred")

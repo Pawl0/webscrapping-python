@@ -35,8 +35,8 @@ def main():
 
     # plotChart(itens)
     saveJsonFile('kabum-top-10', itens)
-    
-    driver.quit()
+
+    # driver.quit()
     return itens
     # except:
     #     print("An error has ocurred")

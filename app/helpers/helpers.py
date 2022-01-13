@@ -6,13 +6,12 @@ import json
 import os
 
 PAGE_LOAD_WAIT_TIME = 20
+FF_options = webdriver.FirefoxOptions()
+FF_profile = webdriver.FirefoxProfile()
+FF_options.add_argument("-headless")
+FF_profile.update_preferences()
 
 def setupDriver(url):
-    FF_options = webdriver.FirefoxOptions()
-    FF_profile = webdriver.FirefoxProfile()
-    FF_options.add_argument("-headless")
-    FF_profile.update_preferences()
-
     # options = Options()
     # options.headless = True
     # options.binary_location = os.environ.get("FIREFOX_BIN")

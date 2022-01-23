@@ -9,3 +9,7 @@ class Webscrapper(ABC):
     @abstractmethod
     def getItensData():
         pass
+
+    @abstractmethod
+    def execute():
+        pass

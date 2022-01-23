@@ -1,13 +1,9 @@
 import sys
 sys.path.append('./app/helpers')
-sys.path.append('./app/epic')
-sys.path.append('./app/kabum')
-sys.path.append('./app/prime_game')
-from helpers import openJsonFile
-from epic import main as epicMain
-from kabum import main as kabumMain
-from prime_game import main as primeMain
+sys.path.append('./app/factories')
 from flask import Flask, jsonify
+from helpers import openJsonFile
+from WebscrapperFactory import makeWebscrapper
 
 app = Flask(__name__)
 
@@ -17,9 +13,14 @@ cache = {
     "prime": "amazon-prime-free-games.json"
 }
 
+@app.route("/")
+def home():
+    return "<h1>Welcome to free games API</h1>"
+
 @app.route("/epic")
 def epic():        
-    return jsonify(epicMain())
+    epicWebscrapper = makeWebscrapper["epic"]()
+    return jsonify(epicWebscrapper.execute())
 
 @app.route("/epic/cache")
 def epicCache():        
@@ -27,16 +28,21 @@ def epicCache():
 
 @app.route("/kabum")
 def kabum():
-    return jsonify(kabumMain())
+    kabumWebscrapper = makeWebscrapper["kabum"]()
+    return jsonify(kabumWebscrapper.execute())
 
 @app.route("/kabum/cache")
 def kabumCache():        
     return jsonify(openJsonFile(cache["kabum"]))
 
-@app.route("/prime_game")
+@app.route("/prime")
 def prime():
-    return jsonify(primeMain())
+    primeWebscrapper = makeWebscrapper["prime"]()
+    return jsonify(primeWebscrapper.execute())
 
-@app.route("/prime_game/cache")
+@app.route("/prime/cache")
 def primeCache():        
     return jsonify(openJsonFile(cache["prime"]))
+
+if __name__ == "__main__":
+  app.run()

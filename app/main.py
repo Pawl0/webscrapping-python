@@ -3,9 +3,13 @@ sys.path.append('./app/helpers')
 sys.path.append('./app/factories')
 from flask import Flask, jsonify
 from helpers import openJsonFile
-from WebscrapperFactory import makeWebscrapper
+from WebscrapperFactory import WebscrapperFactory
+from helpers import DriverManager
 
 app = Flask(__name__)
+driverManager = DriverManager()
+webscrapperFactory = WebscrapperFactory(driverManager)
+makeWebscrapper = webscrapperFactory.makeWebscrapper
 
 cache = {
     "epic": "epic-free-games.json",
@@ -19,7 +23,7 @@ def home():
 
 @app.route("/epic")
 def epic():        
-    epicWebscrapper = makeWebscrapper["epic"]()
+    epicWebscrapper = makeWebscrapper("epic")
     return jsonify(epicWebscrapper.execute())
 
 @app.route("/epic/cache")
@@ -28,7 +32,7 @@ def epicCache():
 
 @app.route("/kabum")
 def kabum():
-    kabumWebscrapper = makeWebscrapper["kabum"]()
+    kabumWebscrapper = makeWebscrapper("kabum")
     return jsonify(kabumWebscrapper.execute())
 
 @app.route("/kabum/cache")
@@ -37,12 +41,22 @@ def kabumCache():
 
 @app.route("/prime")
 def prime():
-    primeWebscrapper = makeWebscrapper["prime"]()
+    primeWebscrapper = makeWebscrapper("prime")
     return jsonify(primeWebscrapper.execute())
 
 @app.route("/prime/cache")
 def primeCache():        
     return jsonify(openJsonFile(cache["prime"]))
+
+@app.route("/close")
+def closeDriver():
+    driverManager.close()
+    return "Driver closed"
+
+@app.route("/open")
+def openDriver():
+    driverManager.open()
+    return "Driver open"
 
 if __name__ == "__main__":
   app.run()

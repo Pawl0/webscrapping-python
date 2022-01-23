@@ -11,7 +11,19 @@ print("Opening driver...")
 class DriverManager:
 
     def __init__(self):
-        print("Firefox bin env: ",os.environ.get("FIREFOX_BIN"))
+        self.open()
+
+    def setupDriver(self, url):
+        print("Getting data from: ", url)
+        self.driver.get(url)
+        print("Waiting page to load...")
+        self.driver.implicitly_wait(PAGE_LOAD_WAIT_TIME)  # in seconds
+        return self.driver
+
+    def close(self):
+        self.driver.close()
+
+    def open(self):
         if os.environ.get("FIREFOX_BIN") != None:
             FF_options = webdriver.FirefoxOptions()
             FF_profile = webdriver.FirefoxProfile()
@@ -22,14 +34,6 @@ class DriverManager:
             options = Options()
             options.headless = True
             self.driver = webdriver.Firefox(options=options)
-
-    def setupDriver(self, url):
-        print("Getting data from: ", url)
-        self.driver.get(url)
-        print("Waiting page to load...")
-        self.driver.implicitly_wait(PAGE_LOAD_WAIT_TIME)  # in seconds
-        return self.driver
-
 
 def saveJsonFile(name, itens):
     print("Saving file as json....")

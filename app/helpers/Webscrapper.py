@@ -1,10 +1,9 @@
-from helpers import DriverManager
 from abc import ABC, abstractmethod
 
 class Webscrapper(ABC):
 
-    def __init__(self):
-        self.driverManager = DriverManager()
+    def __init__(self, driverManager):
+        self.driverManager = driverManager
 
     @abstractmethod
     def getItensData():

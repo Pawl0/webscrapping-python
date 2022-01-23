@@ -11,6 +11,7 @@ print("Opening driver...")
 class DriverManager:
 
     def __init__(self):
+        print("Firefox bin env: ",os.environ.get("FIREFOX_BIN"))
         if os.environ.get("FIREFOX_BIN") != None:
             FF_options = webdriver.FirefoxOptions()
             FF_profile = webdriver.FirefoxProfile()

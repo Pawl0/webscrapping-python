@@ -1,9 +1,12 @@
 import sys
 sys.path.append('../helpers')
-from helpers import saveJsonFile, DriverManager
+from helpers import DriverManager
 from Webscrapper import Webscrapper
 
 class KabumWebscrapper(Webscrapper):
+    
+    _url = "https://www.kabum.com.br/"
+    _filename = "kabum-top-10"
 
     def getItensData(self):
         itens = []
@@ -26,14 +29,6 @@ class KabumWebscrapper(Webscrapper):
                 # "item": description.replace(' ', '\n'),
                 "price": float(price[3:].replace(".", "").replace(",", "."))
             })
-        return itens
-
-    def execute(self):
-        self.driver = self.driverManager.setupDriver("https://www.kabum.com.br/")
-        itens = self.getItensData()
-        print(itens)
-        saveJsonFile('kabum-top-10', itens)
-
         return itens
 
 if __name__ == "__main__":

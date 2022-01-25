@@ -1,10 +1,13 @@
 import os
 import sys
 sys.path.append('../helpers')
-from helpers import saveJsonFile, DriverManager
+from helpers import DriverManager
 from Webscrapper import Webscrapper
 
 class EpicWebscrapper(Webscrapper):
+    
+    _url = "https://www.epicgames.com/store/pt-BR/"
+    _filename = "epic-free-games"
 
     def getItensData(self):
         itens = []
@@ -24,14 +27,6 @@ class EpicWebscrapper(Webscrapper):
             "item": description,
             "until": time,
         })
-        return itens
-
-    def execute(self):
-        self.driver = self.driverManager.setupDriver("https://www.epicgames.com/store/pt-BR/")
-        itens = self.getItensData()
-        print(itens)
-        saveJsonFile("epic-free-games", itens)
-
         return itens
 
 if __name__ == "__main__":

@@ -1,9 +1,12 @@
 import sys
 sys.path.append('../helpers')
-from helpers import saveJsonFile, DriverManager
+from helpers import DriverManager
 from Webscrapper import Webscrapper
 
 class PrimeWebscrapper(Webscrapper):
+    
+    _url = "https://gaming.amazon.com/home"
+    _filename = "amazon-prime-free-games"
 
     def getElementByIndex(self, index):
         return self.driver.find_element_by_xpath(
@@ -33,14 +36,6 @@ class PrimeWebscrapper(Webscrapper):
         except:
             return itens
 
-    def execute(self):
-        self.driver = self.driverManager.setupDriver("https://gaming.amazon.com/home")
-        itens = self.getItensData()
-        print(itens)
-        saveJsonFile("amazon-prime-free-games", itens)
-
-        return itens
-
 if __name__ == "__main__":
-    primeWebscrapper = PrimeWebscrapper()
+    primeWebscrapper = PrimeWebscrapper(DriverManager())
     primeWebscrapper.execute()

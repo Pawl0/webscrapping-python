@@ -2,12 +2,13 @@ import sys
 sys.path.append('./app/helpers')
 sys.path.append('../helpers')
 from Webscrapper import Webscrapper
-from helpers import saveJsonFile, DriverManager
+from helpers import DriverManager
 
 
 class IndieGalaWebscrapper(Webscrapper):
 
     _url = "https://freebies.indiegala.com/"
+    _filename = "indiegala"
 
     def getItensData(self):
         itens = []
@@ -23,15 +24,6 @@ class IndieGalaWebscrapper(Webscrapper):
                 "item": description
             })
         return itens
-
-    def execute(self):
-        self.driver = self.driverManager.setupDriver(self._url)
-        itens = self.getItensData()
-        print(itens)
-        saveJsonFile('indiegala', itens)
-
-        return itens
-
 
 if __name__ == "__main__":
     indiegalaWebscrapper = IndieGalaWebscrapper(DriverManager())

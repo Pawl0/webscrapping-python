@@ -2,7 +2,7 @@ import sys
 sys.path.append('./app/helpers')
 sys.path.append('./app/factories')
 from flask import Flask, jsonify
-from helpers import openJsonFile
+from helpers import openJsonFile, saveJsonFile
 from WebscrapperFactory import WebscrapperFactory
 from helpers import DriverManager
 
@@ -77,6 +77,22 @@ def epicV():
 @app.route("/epic_v/cache")
 def epicVCache():        
     return jsonify(openJsonFile(cache["epicV"]))
+
+@app.route("/all")
+def getAll():
+    platformsDict = {
+        "epic": "",
+        "epicV": "",
+        "prime": "",
+        "kabum": "",
+        "indiegala": "",
+    }
+    
+    for platform in platformsDict:
+        platformsDict[platform] = makeWebscrapper(platform).execute()
+    
+    saveJsonFile("all_platforms", platformsDict)
+    return jsonify(platformsDict)
 
 if __name__ == "__main__":
   app.run()

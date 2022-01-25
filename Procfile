@@ -1,1 +1,1 @@
-web: gunicorn wsgi:app --preload --timeout 25 --max-requests 1200
+web: gunicorn wsgi:app --preload --timeout 90 --max-requests 1200 --log-level debug

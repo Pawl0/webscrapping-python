@@ -14,12 +14,23 @@ makeWebscrapper = webscrapperFactory.makeWebscrapper
 cache = {
     "epic": "epic-free-games.json",
     "kabum": "kabum-top-10.json",
-    "prime": "amazon-prime-free-games.json"
+    "prime": "amazon-prime-free-games.json",
+    "indiegala": "indiegala.json",
 }
 
 @app.route("/")
 def home():
     return "<h1>Welcome to free games API</h1>"
+
+@app.route("/close")
+def closeDriver():
+    driverManager.close()
+    return "Driver closed"
+
+@app.route("/open")
+def openDriver():
+    driverManager.open()
+    return "Driver open"
 
 @app.route("/epic")
 def epic():        
@@ -48,15 +59,14 @@ def prime():
 def primeCache():        
     return jsonify(openJsonFile(cache["prime"]))
 
-@app.route("/close")
-def closeDriver():
-    driverManager.close()
-    return "Driver closed"
+@app.route("/indiegala")
+def indiegala():
+    indiegalaWebscrapper = makeWebscrapper("indiegala")
+    return jsonify(indiegalaWebscrapper.execute())
 
-@app.route("/open")
-def openDriver():
-    driverManager.open()
-    return "Driver open"
+@app.route("/indiegala/cache")
+def indiegalaCache():        
+    return jsonify(openJsonFile(cache["indiegala"]))
 
 if __name__ == "__main__":
   app.run()

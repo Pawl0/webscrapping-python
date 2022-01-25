@@ -17,6 +17,7 @@ cache = {
     "prime": "amazon-prime-free-games.json",
     "indiegala": "indiegala.json",
     "epicV": "epic-v.json",
+    "all_platforms": "all_platforms.json",
 }
 
 @app.route("/")
@@ -93,6 +94,26 @@ def getAll():
     
     saveJsonFile("all_platforms", platformsDict)
     return jsonify(platformsDict)
+
+@app.route("/all/cache_individual")
+def getAllCacheIndividual():
+    platformsDict = {
+        "epic": "",
+        "epicV": "",
+        "prime": "",
+        "kabum": "",
+        "indiegala": "",
+    }
+    
+    for platform in platformsDict:
+        platformsDict[platform] = openJsonFile(cache[platform])
+    
+    saveJsonFile("all_platforms", platformsDict)
+    return jsonify(platformsDict)
+
+@app.route("/all/cache")
+def getAllCache():
+    return jsonify(openJsonFile(cache["all_platforms"]))
 
 if __name__ == "__main__":
   app.run()

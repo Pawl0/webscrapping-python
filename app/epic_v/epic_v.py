@@ -8,7 +8,7 @@ from helpers import DriverManager
 class EpicVWebscrapper(Webscrapper):
 
     _url = "https://epic-virtual-boost.itch.io/"
-    _filename = "epicV"
+    _filename = "epic-v"
 
     def getItensData(self):
         itens = []

@@ -16,6 +16,7 @@ cache = {
     "kabum": "kabum-top-10.json",
     "prime": "amazon-prime-free-games.json",
     "indiegala": "indiegala.json",
+    "epicV": "epic-v.json",
 }
 
 @app.route("/")
@@ -67,6 +68,15 @@ def indiegala():
 @app.route("/indiegala/cache")
 def indiegalaCache():        
     return jsonify(openJsonFile(cache["indiegala"]))
+
+@app.route("/epic_v")
+def epicV():
+    epicVWebscrapper = makeWebscrapper("epicV")
+    return jsonify(epicVWebscrapper.execute())
+
+@app.route("/epic_v/cache")
+def epicVCache():        
+    return jsonify(openJsonFile(cache["epicV"]))
 
 if __name__ == "__main__":
   app.run()

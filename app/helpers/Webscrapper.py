@@ -1,19 +1,32 @@
 from abc import ABC, abstractmethod
 from helpers import saveJsonFile
 
-class Webscrapper(ABC):
-    
-    def __init__(self, driverManager):
-        self.driverManager = driverManager
 
-    @abstractmethod
+class Webscrapper(ABC):
+
+    def __init__(self, webscrappingStrategy):
+        self.webscrappingStrategy = webscrappingStrategy
+        self.setupWebscrapper()
+        self.setTotalElementsToScrappe(self.total_elements_to_scrappe)
+
+    def setupWebscrapper(self):
+        self.webscrappingStrategy.setupWebscrapper(self.url,
+            self.getTotalElementsToScrappe(), self.getElementsXpathByIndex)
+
     def getItensData(self):
+        return self.webscrappingStrategy.getItensData()
+
+    def setTotalElementsToScrappe(self, total_elements_to_scrappe):
+        self.total_elements_to_scrappe = total_elements_to_scrappe
+
+    def getTotalElementsToScrappe(self):
+        return self.total_elements_to_scrappe
+
+    def getElementXpathByIndex(self, elementIndex):
         pass
 
     def execute(self):
-        self.driver = self.driverManager.setupDriver(self._url)
         itens = self.getItensData()
         print(itens)
         saveJsonFile(self._filename, itens)
-
         return itens

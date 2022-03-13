@@ -10,9 +10,11 @@ from kabum import KabumWebscrapper
 from prime_game import PrimeWebscrapper
 from indiegala import IndieGalaWebscrapper
 from epic_v import EpicVWebscrapper
+from Webscrapper import Webscrapper
+from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
 
 class WebscrapperFactory:
-       
+    
     _webscrappersList = {
         "epic": EpicWebscrapper,
         "kabum": KabumWebscrapper,
@@ -23,5 +25,5 @@ class WebscrapperFactory:
     def __init__(self, driverManager):
         self.driverManager = driverManager
 
-    def makeWebscrapper(self, option):
-        return self._webscrappersList[option](self.driverManager)
+    def makeWebscrapper(self, option) -> Webscrapper:
+        return self._webscrappersList[option](SeleniumWebscrappingStrategy())

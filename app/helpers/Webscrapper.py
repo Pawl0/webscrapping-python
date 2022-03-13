@@ -25,6 +25,9 @@ class Webscrapper(ABC):
     def getElementXpathByIndex(self, elementIndex):
         pass
 
+    def setWebscrappingStrategy(self, webscrappingStrategy):
+        self.webscrappingStrategy = webscrappingStrategy
+
     def execute(self):
         itens = self.getItensData()
         print(itens)

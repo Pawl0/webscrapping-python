@@ -13,17 +13,27 @@ class WebscrappingStrategy(ABC):
         pass
 
     def getItensData(self):
-        itens = []
+        self.itens = []
         for elementIndex in range(self.totalItemsToScrappe):
+            print(elementIndex)
             elementsXpaths = self.getElementsXpathByIndex(elementIndex)
+            print(elementsXpaths)
             for key in elementsXpaths:
-                elementXpath = self.getElementByXpath(elementsXpaths[key])
-                elementValue = elementXpath.get_attribute('innerHTML')
+                print(key)
+                print(elementsXpaths[key])
+                elementValue = self.getElementByXpath(elementsXpaths[key])
                 print(elementValue)
-                itens.append({
+                self.itens.append({
                     key: elementValue.replace('&nbsp;', ' '),
                 })
-        return itens
+        self.hook()
+        return self.itens
+    
+    def getItens(self):
+        return self.itens
+
+    def hook(self):
+        pass
 
     @abstractmethod
     def getElementByXpath(self, xpath):

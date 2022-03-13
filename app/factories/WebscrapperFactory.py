@@ -22,8 +22,9 @@ class WebscrapperFactory:
         "indiegala": IndieGalaWebscrapper,
         "epicV": EpicVWebscrapper,
     }
-    def __init__(self, driverManager):
-        self.driverManager = driverManager
+
+    def __init__(self, webscrappingStrategy):
+        self.webscrappingStrategy = webscrappingStrategy
 
     def makeWebscrapper(self, option) -> Webscrapper:
-        return self._webscrappersList[option](SeleniumWebscrappingStrategy())
+        return self._webscrappersList[option](self.webscrappingStrategy)

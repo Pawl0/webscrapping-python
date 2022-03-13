@@ -2,7 +2,7 @@ import sys
 sys.path.append('./app/helpers')
 sys.path.append('../helpers')
 from Webscrapper import Webscrapper
-from helpers import DriverManager
+from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
 
 
 class IndieGalaWebscrapper(Webscrapper):
@@ -10,6 +10,9 @@ class IndieGalaWebscrapper(Webscrapper):
     url = "https://freebies.indiegala.com/"
     _filename = "indiegala"
     total_elements_to_scrappe = 3
+
+    def __init__(self, webscrappingStrategy):
+        super().__init__(SeleniumWebscrappingStrategy())
 
     def getElementsXpathByIndex(self, elementIndex):
         return {

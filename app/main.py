@@ -4,12 +4,12 @@ sys.path.append('./app/factories')
 from flask import Flask, jsonify
 from helpers import openJsonFile, saveJsonFile
 from WebscrapperFactory import WebscrapperFactory
-from helpers import DriverManager
+from LXMLWebscrappingStrategy import LXMLWebscrappingStrategy
 
 app = Flask(__name__)
-driverManager = DriverManager()
-webscrapperFactory = WebscrapperFactory(driverManager)
+webscrapperFactory = WebscrapperFactory(LXMLWebscrappingStrategy())
 makeWebscrapper = webscrapperFactory.makeWebscrapper
+
 
 cache = {
     "epic": "epic-free-games.json",
@@ -24,15 +24,15 @@ cache = {
 def home():
     return "<h1>Welcome to free games API</h1>"
 
-@app.route("/close")
-def closeDriver():
-    driverManager.close()
-    return "Driver closed"
+# @app.route("/close")
+# def closeDriver():
+#     driverManager.close()
+#     return "Driver closed"
 
-@app.route("/open")
-def openDriver():
-    driverManager.open()
-    return "Driver open"
+# @app.route("/open")
+# def openDriver():
+#     driverManager.open()
+#     return "Driver open"
 
 @app.route("/epic")
 def epic():        

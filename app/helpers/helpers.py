@@ -6,7 +6,6 @@ import json
 import os
 
 PAGE_LOAD_WAIT_TIME = 20
-print("Opening driver...")
 
 class DriverManager:
 
@@ -24,6 +23,7 @@ class DriverManager:
         self.driver.close()
 
     def open(self):
+        print("Opening driver...")
         if os.environ.get("FIREFOX_BIN") != None:
             FF_options = webdriver.FirefoxOptions()
             FF_profile = webdriver.FirefoxProfile()

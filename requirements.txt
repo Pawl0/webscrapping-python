@@ -16,3 +16,4 @@ six==1.16.0
 soupsieve==2.3.1
 urllib3==1.25.11
 Werkzeug==2.0.2
+lxml==4.5

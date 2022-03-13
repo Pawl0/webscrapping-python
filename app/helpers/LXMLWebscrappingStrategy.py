@@ -10,7 +10,7 @@ class LXMLWebscrappingStrategy(WebscrappingStrategy):
 
     def setupInternals(self):
         header = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
         }
         response = requests.get(self.url, headers=header)
         print(response)

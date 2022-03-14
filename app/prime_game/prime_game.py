@@ -13,17 +13,17 @@ class PrimeWebscrapper(Webscrapper):
     total_elements_to_scrappe = 7
 
     def __init__(self, webscrappingStrategy):
-        self.seleniumStrategy = SeleniumWebscrappingStrategy()
-        super().__init__(self.seleniumStrategy)
-        self.seleniumStrategy.clickOnBody()
-        self.seleniumStrategy.scrollToBottom()
+        self.webscrappingStrategy = webscrappingStrategy
+        super().__init__(self.webscrappingStrategy)
+        self.webscrappingStrategy.clickOnBody()
+        self.webscrappingStrategy.scrollToBottom()
 
     def getItensData(self):
         try:
             return self.webscrappingStrategy.getItensData()
         except NoSuchElementException:
             print("Element not found")
-            return self.seleniumStrategy.getItens()
+            return self.webscrappingStrategy.getItens()
 
     def getElementsXpathByIndex(self, elementIndex):
         elementDescription = self.getInnerHTMLByIndex(elementIndex)
@@ -33,6 +33,6 @@ class PrimeWebscrapper(Webscrapper):
 
     def getInnerHTMLByIndex(self, elementIndex):
         xpathPrefix = f'/html/body/div[1]/div/div[1]/main/div/div[2]/div/div[3]/div[5]/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div[{elementIndex + 1}]/div/div/div'
-        elementPrefix = self.seleniumStrategy.getDriver().find_element(By.XPATH, xpathPrefix)
+        elementPrefix = self.webscrappingStrategy.getDriver().find_element(By.XPATH, xpathPrefix)
         element = elementPrefix.find_element_by_tag_name('h3')
         return element.get_attribute('innerHTML')

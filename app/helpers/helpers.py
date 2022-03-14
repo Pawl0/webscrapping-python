@@ -30,7 +30,10 @@ class DriverManager:
         if os.environ.get("FIREFOX_BIN") != None:
             FF_options = webdriver.FirefoxOptions()
             FF_profile = webdriver.FirefoxProfile()
-            FF_options.add_argument("-headless")
+            options.headless = True
+            FF_options.add_argument('--no-sandbox')
+            FF_options.add_argument("--headless")
+            options.add_argument("--disable-gpu")
             FF_profile.update_preferences()
             self.driver = webdriver.Firefox(options=FF_options, firefox_profile=FF_profile, executable_path=os.environ.get("GECKODRIVER_PATH"), firefox_binary=FirefoxBinary(os.environ.get("FIREFOX_BIN")))
         else:

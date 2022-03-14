@@ -11,8 +11,8 @@ class EpicWebscrapper(Webscrapper):
     total_elements_to_scrappe = 1
 
     def __init__(self, webscrappingStrategy):
-        self.seleniumStrategy = SeleniumWebscrappingStrategy()
-        super().__init__(self.seleniumStrategy)
+        self.webscrappingStrategy = webscrappingStrategy
+        super().__init__(self.webscrappingStrategy)
 
     def getElementsXpathByIndex(self, elementIndex):
         return {
@@ -21,5 +21,5 @@ class EpicWebscrapper(Webscrapper):
         }
     
     def getInnerHTMLByXpath(self, xpath):
-        element= self.seleniumStrategy.getDriver().find_element(By.XPATH, xpath)
+        element= self.webscrappingStrategy.getDriver().find_element(By.XPATH, xpath)
         return element.get_attribute('innerHTML')

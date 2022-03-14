@@ -44,17 +44,17 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
             return self.getItensData()
         except NoSuchElementException:
             print("Element not found")
-            self.webscrappingStrategy.driverManager.quit()
-            return self.webscrappingStrategy.getItens()
+            self.driverManager.quit()
+            return self.getItens()
         except WebDriverException:
             print("WebDriver exception")
-            self.webscrappingStrategy.driverManager.quit()
+            self.driverManager.quit()
             return [] 
         except TimeoutException:
             print("Timeout exception")
-            self.webscrappingStrategy.driverManager.quit()
+            self.driverManager.quit()
             return [] 
         except:
             print("Unknown exception")
-            self.webscrappingStrategy.driverManager.quit()
+            self.driverManager.quit()
             return []

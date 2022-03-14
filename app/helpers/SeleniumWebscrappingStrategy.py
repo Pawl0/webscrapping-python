@@ -1,6 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 import time
 from WebscrappingStrategy import WebscrappingStrategy
+from selenium.webdriver.common.by import By
 from helpers import DriverManager
 import sys
 sys.path.append('../helpers')
@@ -32,3 +33,7 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
     def clickOnBody(self):
         body = self.driver.find_element_by_xpath('/html/body')
         body.click()
+
+    def getInnerHTMLByXpath(self, xpath):
+        element= self.driver.find_element(By.XPATH, xpath)
+        return element.get_attribute('innerHTML')

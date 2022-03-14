@@ -2,7 +2,7 @@ import sys
 sys.path.append('../helpers')
 from Webscrapper import Webscrapper
 from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
@@ -10,7 +10,7 @@ class PrimeWebscrapper(Webscrapper):
 
     url = "https://gaming.amazon.com/home"
     _filename = "amazon-prime-free-games"
-    total_elements_to_scrappe = 7
+    total_elements_to_scrappe = 100
 
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy
@@ -24,6 +24,15 @@ class PrimeWebscrapper(Webscrapper):
         except NoSuchElementException:
             print("Element not found")
             return self.webscrappingStrategy.getItens()
+        except WebDriverException:
+            print("WebDriver exception")
+            return [] 
+        except TimeoutException:
+            print("Timeout exception")
+            return [] 
+        except:
+            print("Unknown exception")
+            return []
 
     def getElementsXpathByIndex(self, elementIndex):
         elementDescription = self.getInnerHTMLByIndex(elementIndex)

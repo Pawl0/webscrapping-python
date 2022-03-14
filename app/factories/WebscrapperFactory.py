@@ -1,3 +1,5 @@
+from LXMLWebscrappingStrategy import LXMLWebscrappingStrategy
+from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
 import sys
 sys.path.append('./app/helpers')
 sys.path.append('./app/epic')
@@ -10,18 +12,15 @@ from kabum import KabumWebscrapper
 from prime_game import PrimeWebscrapper
 from indiegala import IndieGalaWebscrapper
 from epic_v import EpicVWebscrapper
-from Webscrapper import Webscrapper
-from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
-from LXMLWebscrappingStrategy import LXMLWebscrappingStrategy
 
 class WebscrapperFactory:
-    
+
     __webscrappersList = {
-        "epic": { "scrapper": EpicWebscrapper, "strategy": SeleniumWebscrappingStrategy },
-        "kabum": { "scrapper": KabumWebscrapper, "strategy": LXMLWebscrappingStrategy },
-        "prime": { "scrapper": PrimeWebscrapper, "strategy": SeleniumWebscrappingStrategy},
-        "indiegala": { "scrapper": IndieGalaWebscrapper, "strategy": SeleniumWebscrappingStrategy},
-        "epicV": { "scrapper": EpicVWebscrapper, "strategy": LXMLWebscrappingStrategy },
+        "epic": {"scrapper": EpicWebscrapper, "strategy": SeleniumWebscrappingStrategy},
+        "kabum": {"scrapper": KabumWebscrapper, "strategy": SeleniumWebscrappingStrategy},
+        "prime": {"scrapper": PrimeWebscrapper, "strategy": SeleniumWebscrappingStrategy},
+        "indiegala": {"scrapper": IndieGalaWebscrapper, "strategy": SeleniumWebscrappingStrategy},
+        "epicV": {"scrapper": EpicVWebscrapper, "strategy": LXMLWebscrappingStrategy},
     }
 
     def makeWebscrapper(self, option):

@@ -32,12 +32,12 @@ class DriverManager:
         if os.environ.get("FIREFOX_BIN") != None:
             FF_options = webdriver.FirefoxOptions()
             FF_profile = webdriver.FirefoxProfile()
-            options.headless = True
-            options.add_argument("-remote-debugging-port=9224")
-            options.log.level = "trace"
+            FF_options.headless = True
+            FF_options.add_argument("-remote-debugging-port=9224")
+            FF_options.log.level = "trace"
             FF_options.add_argument('--no-sandbox')
             FF_options.add_argument("--headless")
-            options.add_argument("--disable-gpu")
+            FF_options.add_argument("--disable-gpu")
             FF_profile.update_preferences()
             binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
             self.driver = webdriver.Firefox(options=FF_options, firefox_profile=FF_profile, executable_path=os.environ.get(

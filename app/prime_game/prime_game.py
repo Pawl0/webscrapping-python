@@ -1,8 +1,6 @@
 import sys
 sys.path.append('../helpers')
 from Webscrapper import Webscrapper
-from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
-from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 

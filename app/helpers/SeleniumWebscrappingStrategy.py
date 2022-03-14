@@ -2,6 +2,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 from WebscrappingStrategy import WebscrappingStrategy
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException, WebDriverException, TimeoutException
 from helpers import DriverManager
 import sys
 sys.path.append('../helpers')

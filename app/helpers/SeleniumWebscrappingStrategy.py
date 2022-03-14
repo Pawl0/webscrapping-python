@@ -1,9 +1,10 @@
+from selenium.webdriver.common.keys import Keys
+import time
 from WebscrappingStrategy import WebscrappingStrategy
 from helpers import DriverManager
 import sys
 sys.path.append('../helpers')
-import time
-from selenium.webdriver.common.keys import Keys
+
 
 class SeleniumWebscrappingStrategy(WebscrappingStrategy):
 
@@ -14,8 +15,8 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
         return self.driver
 
     def setupInternals(self):
-        self.driver = self.driverManager.setupDriver(self.getUrl())  
-        time.sleep(3)
+        self.driver = self.driverManager.setupDriver(self.getUrl())
+        time.sleep(2)
         self.scrollToBottom()
 
     def hook(self):

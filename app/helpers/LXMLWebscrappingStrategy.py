@@ -5,7 +5,6 @@ from lxml import html
 import sys
 sys.path.append('../helpers')
 
-
 class LXMLWebscrappingStrategy(WebscrappingStrategy):
 
     def setupInternals(self):
@@ -24,6 +23,5 @@ class LXMLWebscrappingStrategy(WebscrappingStrategy):
         self.tree = html.fromstring(response.content)
         print(self.tree)
 
-    def getElementByXpath(self, xpath):
-        print(xpath)
+    def getElement(self, xpath):
         return str(self.tree.xpath(xpath+"/text()"))

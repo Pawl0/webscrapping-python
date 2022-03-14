@@ -4,10 +4,9 @@ sys.path.append('./app/factories')
 from flask import Flask, jsonify
 from helpers import openJsonFile, saveJsonFile
 from WebscrapperFactory import WebscrapperFactory
-from LXMLWebscrappingStrategy import LXMLWebscrappingStrategy
 
 app = Flask(__name__)
-webscrapperFactory = WebscrapperFactory(LXMLWebscrappingStrategy())
+webscrapperFactory = WebscrapperFactory()
 makeWebscrapper = webscrapperFactory.makeWebscrapper
 
 
@@ -100,9 +99,9 @@ def getAllCacheIndividual():
     platformsDict = {
         "epic": "",
         "epicV": "",
-        "prime": "",
-        "kabum": "",
         "indiegala": "",
+        "kabum": "",
+        "prime": "",
     }
     
     for platform in platformsDict:

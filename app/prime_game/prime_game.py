@@ -3,6 +3,9 @@ sys.path.append('../helpers')
 from Webscrapper import Webscrapper
 from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+
 class PrimeWebscrapper(Webscrapper):
 
     url = "https://gaming.amazon.com/home"
@@ -12,6 +15,8 @@ class PrimeWebscrapper(Webscrapper):
     def __init__(self, webscrappingStrategy):
         self.seleniumStrategy = SeleniumWebscrappingStrategy()
         super().__init__(self.seleniumStrategy)
+        self.seleniumStrategy.clickOnBody()
+        self.seleniumStrategy.scrollToBottom()
 
     def getItensData(self):
         try:
@@ -21,18 +26,13 @@ class PrimeWebscrapper(Webscrapper):
             return self.seleniumStrategy.getItens()
 
     def getElementsXpathByIndex(self, elementIndex):
-        elementDescription = self.getElementByIndex(elementIndex)
+        elementDescription = self.getInnerHTMLByIndex(elementIndex)
         return {
             "item": elementDescription
         }
 
-    def getElementByIndex(self, elementIndex):
-        driver = self.seleniumStrategy.getDriver()
-        xpathPrefix = f'/html/body/div[1]/div/div[1]/main/div/div[2]/div/div[3]/div[5]/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div[{elementIndex + 1}]'
-        try:
-            xpath = xpathPrefix+'/div/div/div/a/div/div/div[2]/div/div[1]/h3'
-            if (driver.find_element_by_xpath(xpath)):
-                return xpath
-        except:
-            xpath = xpathPrefix+'/div/div/div/div/div/div[2]/div/div[1]/h3'
-            return xpath
+    def getInnerHTMLByIndex(self, elementIndex):
+        xpathPrefix = f'/html/body/div[1]/div/div[1]/main/div/div[2]/div/div[3]/div[5]/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div[{elementIndex + 1}]/div/div/div'
+        elementPrefix = self.seleniumStrategy.getDriver().find_element(By.XPATH, xpathPrefix)
+        element = elementPrefix.find_element_by_tag_name('h3')
+        return element.get_attribute('innerHTML')

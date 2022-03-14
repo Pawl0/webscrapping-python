@@ -12,19 +12,19 @@ from indiegala import IndieGalaWebscrapper
 from epic_v import EpicVWebscrapper
 from Webscrapper import Webscrapper
 from SeleniumWebscrappingStrategy import SeleniumWebscrappingStrategy
+from LXMLWebscrappingStrategy import LXMLWebscrappingStrategy
 
 class WebscrapperFactory:
     
-    _webscrappersList = {
-        "epic": EpicWebscrapper,
-        "kabum": KabumWebscrapper,
-        "prime": PrimeWebscrapper,
-        "indiegala": IndieGalaWebscrapper,
-        "epicV": EpicVWebscrapper,
+    __webscrappersList = {
+        "epic": { "scrapper": EpicWebscrapper, "strategy": SeleniumWebscrappingStrategy },
+        "kabum": { "scrapper": KabumWebscrapper, "strategy": LXMLWebscrappingStrategy },
+        "prime": { "scrapper": PrimeWebscrapper, "strategy": SeleniumWebscrappingStrategy},
+        "indiegala": { "scrapper": IndieGalaWebscrapper, "strategy": SeleniumWebscrappingStrategy},
+        "epicV": { "scrapper": EpicVWebscrapper, "strategy": LXMLWebscrappingStrategy },
     }
 
-    def __init__(self, webscrappingStrategy):
-        self.webscrappingStrategy = webscrappingStrategy
-
-    def makeWebscrapper(self, option) -> Webscrapper:
-        return self._webscrappersList[option](self.webscrappingStrategy)
+    def makeWebscrapper(self, option):
+        selectedWebscrapper = self.__webscrappersList[option]
+        selectedStrategy = selectedWebscrapper["strategy"]
+        return selectedWebscrapper["scrapper"](selectedStrategy())

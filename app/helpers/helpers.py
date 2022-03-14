@@ -1,11 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary #We import this so we can specify the Firefox browser binary location
-
+import re
 import json
 import os
 
-PAGE_LOAD_WAIT_TIME = 20
+PAGE_LOAD_WAIT_TIME = 25
 
 class DriverManager:
 
@@ -21,6 +21,9 @@ class DriverManager:
 
     def close(self):
         self.driver.close()
+    
+    def quit(self):
+        self.driver.quit()
 
     def open(self):
         print("Opening driver...")
@@ -47,3 +50,9 @@ def openJsonFile(name):
     file = open(name)
     data = json.load(file)
     return data
+
+def removeUselessCharsFromText(text):
+    return text.replace('\\',' ').replace('xa0','').replace('&nbsp;', ' ').replace('[\'', '').replace('\']', '').replace('Grátis - ', '').replace('<time datetime="', '').replace('" data-component="Time">', ' ').replace('</time>', '')
+
+def extractISODateFromText(text: str):
+    return re.search(r'\d{4}-\d{2}-\d{2}T\d+:\d+:\d+.\d+Z', text).group(0)

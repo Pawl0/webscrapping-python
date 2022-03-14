@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+from helpers import removeUselessCharsFromText
+from helpers import extractISODateFromText
 
 class WebscrappingStrategy(ABC):
 
@@ -15,17 +17,15 @@ class WebscrappingStrategy(ABC):
     def getItensData(self):
         self.itens = []
         for elementIndex in range(self.totalItemsToScrappe):
-            print(elementIndex)
             elementsXpaths = self.getElementsXpathByIndex(elementIndex)
-            print(elementsXpaths)
+            item = {}
             for key in elementsXpaths:
-                print(key)
-                print(elementsXpaths[key])
-                elementValue = self.getElementByXpath(elementsXpaths[key])
-                print(elementValue)
-                self.itens.append({
-                    key: elementValue.replace('&nbsp;', ' '),
-                })
+                elementValue = self.getElement(elementsXpaths[key])
+                if (key == "until"):
+                    item[key] = extractISODateFromText(elementValue)
+                else:
+                    item[key] = removeUselessCharsFromText(elementValue)
+            self.itens.append(item)
         self.hook()
         return self.itens
     
@@ -36,7 +36,7 @@ class WebscrappingStrategy(ABC):
         pass
 
     @abstractmethod
-    def getElementByXpath(self, xpath):
+    def getElement(self, xpath):
         pass
 
     def setUrl(self, url):

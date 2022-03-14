@@ -16,12 +16,18 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
     def setupInternals(self):
         self.driver = self.driverManager.setupDriver(self.getUrl())  
         time.sleep(3)
-        self.driver.find_element_by_tag_name('body').click()
-        self.driver.find_element_by_tag_name('body').send_keys(Keys.END)
+        self.scrollToBottom()
 
     def hook(self):
-        self.driverManager.close()
+        self.driverManager.quit()
 
-    def getElementByXpath(self, xpath):
-        elementXpath = self.driver.find_element_by_xpath(xpath)
-        return elementXpath.get_attribute('innerHTML')
+    def getElement(self, element):
+        return element
+
+    def scrollToBottom(self):
+        body = self.driver.find_element_by_xpath('/html/body')
+        body.send_keys(Keys.END)
+
+    def clickOnBody(self):
+        body = self.driver.find_element_by_xpath('/html/body')
+        body.click()

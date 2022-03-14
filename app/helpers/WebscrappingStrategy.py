@@ -29,6 +29,10 @@ class WebscrappingStrategy(ABC):
         self.hook()
         return self.itens
     
+    @abstractmethod
+    def getItensDecorated(self):
+        pass
+        
     def getItens(self):
         return self.itens
 

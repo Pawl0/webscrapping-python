@@ -25,3 +25,6 @@ class LXMLWebscrappingStrategy(WebscrappingStrategy):
 
     def getElement(self, xpath):
         return str(self.tree.xpath(xpath+"/text()"))
+
+    def getItensDecorated(self):
+        self.getItensData()

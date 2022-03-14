@@ -14,7 +14,7 @@ class Webscrapper(ABC):
             self.getTotalElementsToScrappe(), self.getElementsXpathByIndex)
 
     def getItensData(self):
-        return self.webscrappingStrategy.getItensData()
+        return self.webscrappingStrategy.getItensDecorated()
 
     def setTotalElementsToScrappe(self, total_elements_to_scrappe):
         self.total_elements_to_scrappe = total_elements_to_scrappe

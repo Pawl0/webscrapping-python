@@ -10,7 +10,7 @@ class PrimeWebscrapper(Webscrapper):
 
     url = "https://gaming.amazon.com/home"
     _filename = "amazon-prime-free-games"
-    total_elements_to_scrappe = 100
+    total_elements_to_scrappe = 7
 
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy
@@ -19,20 +19,7 @@ class PrimeWebscrapper(Webscrapper):
         self.webscrappingStrategy.scrollToBottom()
 
     def getItensData(self):
-        try:
-            return self.webscrappingStrategy.getItensData()
-        except NoSuchElementException:
-            print("Element not found")
-            return self.webscrappingStrategy.getItens()
-        except WebDriverException:
-            print("WebDriver exception")
-            return [] 
-        except TimeoutException:
-            print("Timeout exception")
-            return [] 
-        except:
-            print("Unknown exception")
-            return []
+        return self.webscrappingStrategy.getItensDecorated()
 
     def getElementsXpathByIndex(self, elementIndex):
         elementDescription = self.getInnerHTMLByIndex(elementIndex)

@@ -37,3 +37,23 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
     def getInnerHTMLByXpath(self, xpath):
         element= self.driver.find_element(By.XPATH, xpath)
         return element.get_attribute('innerHTML')
+
+    def getItensDecorated(self):
+        try:
+            return self.getItensData()
+        except NoSuchElementException:
+            print("Element not found")
+            self.webscrappingStrategy.driverManager.quit()
+            return self.webscrappingStrategy.getItens()
+        except WebDriverException:
+            print("WebDriver exception")
+            self.webscrappingStrategy.driverManager.quit()
+            return [] 
+        except TimeoutException:
+            print("Timeout exception")
+            self.webscrappingStrategy.driverManager.quit()
+            return [] 
+        except:
+            print("Unknown exception")
+            self.webscrappingStrategy.driverManager.quit()
+            return []

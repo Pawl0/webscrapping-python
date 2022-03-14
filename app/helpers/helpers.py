@@ -6,7 +6,7 @@ import re
 import json
 import os
 
-PAGE_LOAD_WAIT_TIME = 20
+PAGE_LOAD_WAIT_TIME = 25
 
 
 class DriverManager:

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from helpers import saveJsonFile
-
+from datetime import datetime
 
 class Webscrapper(ABC):
 
@@ -29,7 +29,11 @@ class Webscrapper(ABC):
         self.webscrappingStrategy = webscrappingStrategy
 
     def execute(self):
-        itens = self.getItensData()
-        print(itens)
-        saveJsonFile(self._filename, itens)
-        return itens
+        items = self.getItensData()
+        result = {
+            "items": items,
+            "last_run": datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
+        }
+        print(result)
+        saveJsonFile(self._filename, result)
+        return result

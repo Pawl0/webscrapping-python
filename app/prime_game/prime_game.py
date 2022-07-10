@@ -8,7 +8,7 @@ class PrimeWebscrapper(Webscrapper):
 
     url = "https://gaming.amazon.com/home"
     _filename = "amazon-prime-free-games"
-    total_elements_to_scrappe = 7
+    total_elements_to_scrappe = 30
 
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy
@@ -26,7 +26,9 @@ class PrimeWebscrapper(Webscrapper):
         }
 
     def getInnerHTMLByIndex(self, elementIndex):
-        xpathPrefix = f'/html/body/div[1]/div/div[1]/main/div/div[2]/div/div[3]/div[5]/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div[{elementIndex + 1}]/div/div/div'
+        xpathPrefix = f'/html/body/div[1]/div/div[1]/main/div/div/div/div[4]/div[5]/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div[{elementIndex + 1}]/div/div/div'
         elementPrefix = self.webscrappingStrategy.getDriver().find_element(By.XPATH, xpathPrefix)
-        element = elementPrefix.find_element_by_tag_name('h3')
+        elements = elementPrefix.find_elements_by_tag_name('p')
+        element = elements[-2]
+        self.webscrappingStrategy.pageUp()
         return element.get_attribute('innerHTML')

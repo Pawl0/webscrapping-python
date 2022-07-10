@@ -27,6 +27,11 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
     def getElement(self, element):
         return element
 
+    def pageUp(self):
+        body = self.driver.find_element_by_xpath('/html/body')
+        time.sleep(0.3)
+        body.send_keys(Keys.PAGE_UP)
+
     def scrollToBottom(self):
         body = self.driver.find_element_by_xpath('/html/body')
         body.send_keys(Keys.END)

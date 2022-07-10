@@ -1,5 +1,4 @@
 from app.main import app
-import schedule
 from WebscrapperFactory import WebscrapperFactory
 import time
 from apscheduler.schedulers.background import BackgroundScheduler

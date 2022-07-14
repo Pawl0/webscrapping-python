@@ -7,7 +7,8 @@ class KabumWebscrapper(Webscrapper):
     url = "https://www.kabum.com.br/"
     _filename = "kabum-top-10"
     total_elements_to_scrappe = 10
-
+    name = "kabum"
+    
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy
         super().__init__(self.webscrappingStrategy)

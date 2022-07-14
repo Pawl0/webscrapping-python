@@ -1,6 +1,9 @@
+import sys
+sys.path.append('./app/infra/db')
 from abc import ABC, abstractmethod
 from helpers import saveJsonFile
 from datetime import datetime
+from MongoClient import db, saveOne
 
 class Webscrapper(ABC):
 
@@ -34,6 +37,7 @@ class Webscrapper(ABC):
             "items": items,
             "last_run": datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
         }
-        print(result)
         saveJsonFile(self._filename, result)
+        inserted = saveOne(self.name, result)
+        print(inserted)
         return result

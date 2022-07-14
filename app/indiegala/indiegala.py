@@ -8,6 +8,7 @@ class IndieGalaWebscrapper(Webscrapper):
     url = "https://freebies.indiegala.com/"
     _filename = "indiegala"
     total_elements_to_scrappe = 3
+    name = "indiegala"
 
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy

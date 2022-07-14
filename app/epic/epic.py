@@ -7,7 +7,8 @@ class EpicWebscrapper(Webscrapper):
     url = "https://www.epicgames.com/store/pt-BR/"
     _filename = "epic-free-games"
     total_elements_to_scrappe = 2
-
+    name = "epic"
+    
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy
         super().__init__(self.webscrappingStrategy)

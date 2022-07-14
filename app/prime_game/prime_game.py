@@ -9,6 +9,7 @@ class PrimeWebscrapper(Webscrapper):
     url = "https://gaming.amazon.com/home"
     _filename = "amazon-prime-free-games"
     total_elements_to_scrappe = 30
+    name = "prime_game"
 
     def __init__(self, webscrappingStrategy):
         self.webscrappingStrategy = webscrappingStrategy

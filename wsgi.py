@@ -21,7 +21,7 @@ def runAll():
         time.sleep(10)
 
 if __name__ == "__main__":
-  sched = BackgroundScheduler(daemon=True)
-  sched.add_job(runAll,'interval',days=1)
-  sched.start()
-  app.run()
+    sched = BackgroundScheduler(daemon=True)
+    sched.add_job(runAll,'interval',days=1)
+    sched.start()
+    app.run()

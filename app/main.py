@@ -23,16 +23,6 @@ cache = {
 def home():
     return "<h1>Welcome to free games API</h1>"
 
-# @app.route("/close")
-# def closeDriver():
-#     driverManager.close()
-#     return "Driver closed"
-
-# @app.route("/open")
-# def openDriver():
-#     driverManager.open()
-#     return "Driver open"
-
 @app.route("/epic")
 def epic():        
     epicWebscrapper = makeWebscrapper("epic")

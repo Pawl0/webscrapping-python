@@ -10,3 +10,10 @@ def saveOne(collection_name, data):
     collection = db[collection_name]
     inserted = collection.insert_one(jsonData)
     return inserted.inserted_id
+
+def getMany(collection_name):
+    data = db[collection_name].find_one()
+    jsonDump = json_util.dumps(data)
+    jsonLoaded = json.loads(jsonDump)
+    print(jsonLoaded)
+    return jsonLoaded

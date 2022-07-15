@@ -1,23 +1,15 @@
 import sys
 sys.path.append('./app/helpers')
 sys.path.append('./app/factories')
+sys.path.append('./app/infra/db')
 from flask import Flask, jsonify
 from helpers import openJsonFile, saveJsonFile
 from WebscrapperFactory import WebscrapperFactory
+from MongoClient import getMany
 
 app = Flask(__name__)
 webscrapperFactory = WebscrapperFactory()
 makeWebscrapper = webscrapperFactory.makeWebscrapper
-
-
-cache = {
-    "epic": "epic-free-games.json",
-    "kabum": "kabum-top-10.json",
-    "prime": "amazon-prime-free-games.json",
-    "indiegala": "indiegala.json",
-    "epicV": "epic-v.json",
-    "all_platforms": "all_platforms.json",
-}
 
 @app.route("/")
 def home():
@@ -30,7 +22,8 @@ def epic():
 
 @app.route("/epic/cache")
 def epicCache():        
-    return jsonify(openJsonFile(cache["epic"]))
+    result = getMany("epic")
+    return jsonify(result)
 
 @app.route("/kabum")
 def kabum():
@@ -39,7 +32,8 @@ def kabum():
 
 @app.route("/kabum/cache")
 def kabumCache():        
-    return jsonify(openJsonFile(cache["kabum"]))
+    result = getMany("kabum")
+    return jsonify(result)
 
 @app.route("/prime")
 def prime():
@@ -48,7 +42,8 @@ def prime():
 
 @app.route("/prime/cache")
 def primeCache():        
-    return jsonify(openJsonFile(cache["prime"]))
+    result = getMany("prime_game")
+    return jsonify(result)
 
 @app.route("/indiegala")
 def indiegala():
@@ -57,7 +52,8 @@ def indiegala():
 
 @app.route("/indiegala/cache")
 def indiegalaCache():        
-    return jsonify(openJsonFile(cache["indiegala"]))
+    result = getMany("indiegala")
+    return jsonify(result)
 
 @app.route("/epic_v")
 def epicV():
@@ -66,7 +62,8 @@ def epicV():
 
 @app.route("/epic_v/cache")
 def epicVCache():        
-    return jsonify(openJsonFile(cache["epicV"]))
+    result = getMany("epic_v")
+    return jsonify(result)
 
 @app.route("/all")
 def getAll():
@@ -83,26 +80,6 @@ def getAll():
     
     saveJsonFile("all_platforms", platformsDict)
     return jsonify(platformsDict)
-
-@app.route("/all/cache_individual")
-def getAllCacheIndividual():
-    platformsDict = {
-        "epic": "",
-        "epicV": "",
-        "indiegala": "",
-        "kabum": "",
-        "prime": "",
-    }
-    
-    for platform in platformsDict:
-        platformsDict[platform] = openJsonFile(cache[platform])
-    
-    saveJsonFile("all_platforms", platformsDict)
-    return jsonify(platformsDict)
-
-@app.route("/all/cache")
-def getAllCache():
-    return jsonify(openJsonFile(cache["all_platforms"]))
 
 if __name__ == "__main__":
   app.run()

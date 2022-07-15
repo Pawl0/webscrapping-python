@@ -1,8 +1,16 @@
 from pymongo import MongoClient
 from bson import json_util
 import json
+import os
 
-client = MongoClient("mongodb+srv://paulo:Paulao123@cluster0.nl7tfxi.mongodb.net/?retryWrites=true&w=majority")
+db_user = os.environ.get("DB_USER")
+db_password = os.environ.get("DB_PASSWORD")
+
+print(os.environ)
+print(db_user)
+print(db_password)
+
+client = MongoClient(f"mongodb+srv://{db_user}:{db_password}@cluster0.nl7tfxi.mongodb.net/?retryWrites=true&w=majority")
 db = client["free-games"]
 
 def saveOne(collection_name, data):

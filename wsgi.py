@@ -18,7 +18,6 @@ def runAll():
     for scrapper in scrappers:
         print(scrapper)
         makeWebscrapper(scrapper).execute()
-        time.sleep(10)
 
 if __name__ == "__main__":
     sched = BackgroundScheduler(daemon=True)

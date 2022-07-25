@@ -18,7 +18,7 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
 
     def setupInternals(self):
         self.driver = self.driverManager.setupDriver(self.getUrl())
-        time.sleep(2)
+        time.sleep(6)
         self.scrollToBottom()
 
     def hook(self):
@@ -29,7 +29,7 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
 
     def pageUp(self):
         body = self.driver.find_element_by_xpath('/html/body')
-        time.sleep(0.3)
+        time.sleep(8)
         body.send_keys(Keys.PAGE_UP)
 
     def scrollToBottom(self):
@@ -37,7 +37,7 @@ class SeleniumWebscrappingStrategy(WebscrappingStrategy):
         body.send_keys(Keys.END)
 
     def clickOnBody(self):
-        body = self.driver.find_element_by_xpath('/html/body')
+        body = self.driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/main/div/div/div/div[3]/div[1]/div[1]/div/div[3]/button/div/p')
         body.click()
 
     def getInnerHTMLByXpath(self, xpath):

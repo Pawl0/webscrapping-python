@@ -19,8 +19,8 @@ def saveOne(collection_name, data):
     inserted = collection.insert_one(jsonData)
     return inserted.inserted_id
 
-def getMany(collection_name):
-    data = db[collection_name].find_one()
+def getLast(collection_name):
+    data = db[collection_name].find().sort('_id', -1)[0]
     jsonDump = json_util.dumps(data)
     jsonLoaded = json.loads(jsonDump)
     print(jsonLoaded)

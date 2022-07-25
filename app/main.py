@@ -5,7 +5,7 @@ sys.path.append('./app/infra/db')
 from flask import Flask, jsonify
 from helpers import openJsonFile, saveJsonFile
 from WebscrapperFactory import WebscrapperFactory
-from MongoClient import getMany
+from MongoClient import getLast
 
 app = Flask(__name__)
 webscrapperFactory = WebscrapperFactory()
@@ -22,7 +22,7 @@ def epic():
 
 @app.route("/epic/cache")
 def epicCache():        
-    result = getMany("epic")
+    result = getLast("epic")
     return jsonify(result)
 
 @app.route("/kabum")
@@ -32,7 +32,7 @@ def kabum():
 
 @app.route("/kabum/cache")
 def kabumCache():        
-    result = getMany("kabum")
+    result = getLast("kabum")
     return jsonify(result)
 
 @app.route("/prime")
@@ -42,7 +42,7 @@ def prime():
 
 @app.route("/prime/cache")
 def primeCache():        
-    result = getMany("prime_game")
+    result = getLast("prime_game")
     return jsonify(result)
 
 @app.route("/indiegala")
@@ -52,7 +52,7 @@ def indiegala():
 
 @app.route("/indiegala/cache")
 def indiegalaCache():        
-    result = getMany("indiegala")
+    result = getLast("indiegala")
     return jsonify(result)
 
 @app.route("/epic_v")
@@ -62,7 +62,7 @@ def epicV():
 
 @app.route("/epic_v/cache")
 def epicVCache():        
-    result = getMany("epic_v")
+    result = getLast("epic_v")
     return jsonify(result)
 
 @app.route("/all")

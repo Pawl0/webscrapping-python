@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: AkhileshNS/heroku-deploy@v3.12.12
+      - uses: JOURNEY-CP/journey-publish-heroku@v0.0.1-alpha
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_email: "paulohsantosol@gmail.com"

@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: behe/heroku-build@v1.1
+      - uses: michcio1234/heroku-run@0.1.1
         with:
-          api-key: ${{secrets.HEROKU_API_KEY}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_email: "paulohsantosol@gmail.com"
-          app-name: "fierce-peak-93408"
+          heroku_app_name: "fierce-peak-93408"

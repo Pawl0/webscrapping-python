@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: CDNievas/heroku-action@v1.0
+      - uses: AkhileshNS/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_email: "paulohsantosol@gmail.com"

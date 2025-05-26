@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: michcio1234/heroku-run@0.1.1
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_email: "paulohsantosol@gmail.com"
+          heroku_app_name: "fierce-peak-93408"
+          command: bash
